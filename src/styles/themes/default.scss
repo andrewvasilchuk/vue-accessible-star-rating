@@ -1,17 +1,21 @@
 $v-star-rating-star-color: #ff9800 !default;
+$v-star-rating-disabled-star-color: #bdbdbd !default;
 $v-star-rating-star-active-color: #ff9800 !default;
+$v-star-rating-disabled-star-active-color: #bdbdbd !default;
 $v-star-rating-spacing: 4px !default;
 
 :root {
   --v-star-rating-star-color: #{$v-star-rating-star-color};
+  --v-star-rating-disabled-star-color: #{$v-star-rating-disabled-star-color};
   --v-star-rating-star-active-color: #{$v-star-rating-star-active-color};
+  --v-star-rating-disabled-star-active-color: #{$v-star-rating-disabled-star-active-color};
   --v-star-rating-spacing: #{$v-star-rating-spacing};
 }
 
 .v-star-rating {
   $block: &;
 
-  &--colored {
+  &--colored:not(#{$block}--disabled) {
     #{$block}__star {
       svg {
         fill: var(--v-star-rating-star-color, $v-star-rating-star-color);
@@ -23,6 +27,23 @@ $v-star-rating-spacing: 4px !default;
         fill: var(
           --v-star-rating-star-active-color,
           $v-star-rating-star-active-color
+        );
+      }
+    }
+  }
+
+  &--disabled {
+    #{$block}__star {
+      svg {
+        fill: var(--v-star-rating-disabled-star-color, $v-star-rating-disabled-star-color);
+      }
+    }
+
+    #{$block}__star--active {
+      svg {
+        fill: var(
+          --v-star-rating-disabled-star-active-color,
+          $v-star-rating-disabled-star-active-color
         );
       }
     }

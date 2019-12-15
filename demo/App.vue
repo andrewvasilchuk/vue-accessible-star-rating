@@ -18,6 +18,10 @@
         </template>
       </vue-accessible-star-rating>
     </section>
+    <section>
+      <h2>Disabled</h2>
+      <vue-accessible-star-rating v-model="rating" id="baz"  label="Rating" disabled></vue-accessible-star-rating>
+    </section>
   </div>
 </template>
 
