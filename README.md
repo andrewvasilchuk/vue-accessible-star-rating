@@ -149,13 +149,14 @@ $v-star-rating-star-size: 32px !default;
 
 `<vue-accessible-star-rating>` accepts some `props`:
 
-| Prop               | Description                                                                                                                                                                      |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `value: number`    | `required`. Current value (use in conjunction with `v-model`).                                                                                                                   |
-| `id: string`       | `required`. Since it is a functional stateless component id does not have a `this._uid` instance property, so you have to pass it explicit. Make sure it is unique in page scope |
-| `label: string`    | Value of `aria-label` attribute                                                                                                                                                  |
-| `max: number`      | `default: 5` Maximum value of rating                                                                                                                                             |
-| `colored: boolean` | `default: true` Whether or not to apply `v-star-rating--colored` class, which adds `fill` rules to `<svg>` elements                                                              |
+| Prop                | Description                                                                                                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `value: number`     | `required`. Current value (use in conjunction with `v-model`).                                                                                                                   |
+| `id: string`        | `required`. Since it is a functional stateless component id does not have a `this._uid` instance property, so you have to pass it explicit. Make sure it is unique in page scope |
+| `label: string`     | Value of `aria-label` attribute                                                                                                                                                  |
+| `max: number`       | `default: 5` Maximum value of rating                                                                                                                                             |
+| `colored: boolean`  | `default: true` Whether or not to apply `v-star-rating--colored` class, which adds `fill` rules to `<svg>` elements                                                              |
+| `readonly: boolean` | Whether or not star rating is readonly                                                                                                                                           |
 
 #### Slots
 

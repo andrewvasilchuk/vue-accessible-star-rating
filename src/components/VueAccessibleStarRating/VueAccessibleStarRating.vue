@@ -33,13 +33,16 @@ export default {
     },
     disabled: {
       type: Boolean
+    },
+    readonly: {
+      type: Boolean
     }
   },
   render(h, { props, slots, data, listeners }) {
     // remove native event listener
     delete data.on
 
-    const { value, id, max, colored, label, disabled } = props
+    const { value, id, max, colored, label, disabled, readonly } = props
 
     const { star, active } = slots()
 
@@ -47,7 +50,8 @@ export default {
       staticClass: 'v-star-rating',
       class: {
         'v-star-rating--colored': colored,
-        'v-star-rating--disabled': disabled
+        'v-star-rating--disabled': disabled,
+        'v-star-rating--readonly': disabled
       },
       attrs: {
         id,
@@ -67,7 +71,7 @@ export default {
             type: 'radio',
             name: `v-star-rating-${id}`,
             value: i,
-            disabled,
+            disabled: disabled || readonly,
             'aria-label': i,
           },
           on: {
