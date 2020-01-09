@@ -7,14 +7,9 @@ import StarPaint from '../../assets/star--paint.svg'
 export default {
   name: 'VueAccessibleStarRating',
   functional: true,
-  model: {
-    prop: 'value',
-    event: 'input',
-  },
   props: {
     value: {
       type: Number,
-      required: true,
     },
     id: {
       type: String,
@@ -32,11 +27,11 @@ export default {
       type: String,
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     readonly: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   render(h, { props, slots, data, listeners }) {
     // remove native event listener
@@ -51,7 +46,7 @@ export default {
       class: {
         'v-star-rating--colored': colored,
         'v-star-rating--disabled': disabled,
-        'v-star-rating--readonly': disabled
+        'v-star-rating--readonly': disabled,
       },
       attrs: {
         id,
@@ -75,7 +70,16 @@ export default {
             'aria-label': i,
           },
           on: {
-            change: () => listeners.input(i),
+            input: () => {
+              if (listeners.input) {
+                listeners.input(i)
+              }
+            },
+            change: () => {
+              if (listeners.change) {
+                listeners.change(i)
+              }
+            },
           },
         })
       )
